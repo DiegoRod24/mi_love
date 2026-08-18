@@ -1,58 +1,14 @@
 window.HISTORIA = {
-  nombres: {
-    pareja: "Mi amor",
-    autor: "Diego",
-    george: "George",
-    mia: "Mía"
-  },
+  nombres: { pareja: "Annys", autor: "Diego", george: "George", mia: "Mía" },
   capitulos: [
-    {
-      year: "2019",
-      kicker: "Capítulo 1",
-      title: "Todo empezó sin que lo supiéramos",
-      text: "Nos conocimos cuando el mundo todavía parecía normal. Empezamos como amigos, compartiendo tiempo, conversaciones, risas y esa confianza que, sin avisar, fue convirtiéndose en algo mucho más grande."
-    },
-    {
-      year: "2020",
-      kicker: "Capítulo 2",
-      title: "Cuando el mundo se detuvo, nosotros nos encontramos",
-      text: "Llegó la cuarentena y nos refugiamos juntos para atravesar una época que nadie sabía cómo iba a terminar. Mientras afuera todo era incertidumbre, dentro de nuestra pequeña burbuja empezábamos a construir algo nuestro."
-    },
-    {
-      year: "2020",
-      kicker: "Capítulo 3",
-      title: "Y entonces llegó George 🐾",
-      text: "Nuestro primer hijo perruno. Un schnauzer toy con alma gigante. George llegó para enseñarnos que una familia también puede empezar con cuatro patitas, travesuras y muchísimo amor."
-    },
-    {
-      year: "2021",
-      kicker: "Capítulo 4",
-      title: "De Trujillo a Lima",
-      text: "Hasta 2021 nuestra historia tuvo sabor a Trujillo. Ese mismo año nos vinimos a Lima para seguir construyendo, aprendiendo y creciendo juntos. No teníamos todas las respuestas; sí teníamos las ganas de seguir siendo equipo."
-    },
-    {
-      year: "Después",
-      kicker: "Capítulo 5",
-      title: "Mía completó la manada 🐾",
-      text: "En el Callao apareció Mía y la familia se hizo de cuatro: tú, venezolana; yo, trujillano; George, nuestro schnauzer trujillano; y Mía, nuestra chalaca adoptiva. Una combinación improbable y perfecta, exactamente como nosotros."
-    },
-    {
-      year: "Siempre",
-      kicker: "Capítulo 6",
-      title: "Lo extraordinario vive en lo cotidiano",
-      text: "Me enamoran nuestras salidas a comer, tus arepas —aunque a veces se quemen 😂—, entrenar juntos, imaginar que un día aprenderemos a patinar sin matarnos, pasear con los perritos y todos esos momentos que quizá parecen pequeños, pero para mí son vida."
-    },
-    {
-      year: "6 años",
-      kicker: "Capítulo 7",
-      title: "No todo fue fácil. Y eso también es parte de nosotros.",
-      text: "Tuvimos altas, bajas, distancias y momentos en los que tomamos caminos separados. Pero una y otra vez entendimos algo: podemos estar lejos, pero juntos nos sentimos en casa. Hemos cambiado, madurado y avanzado muchísimo."
-    },
-    {
-      year: "2026",
-      kicker: "Capítulo 8",
-      title: "Nos alejamos… y volvimos a elegirnos",
-      text: "Este año trajo cambios, familia, Trujillo, distancia y decisiones difíciles. Nos separamos un tiempo, pero poco después volvimos a encontrarnos. Porque cuando estamos juntos somos dinamita pura; cuando estamos lejos, algo esencial nos falta."
-    }
-  ]
+    {year:"2019",kicker:"CAPÍTULO 1 · CUANDO TODO EMPEZÓ",title:"Primero fuimos amigos.",text:"Nos conocimos cuando todavía no sabíamos todo lo que iba a pasar. Empezamos viéndonos, conversando, riéndonos y compartiendo tiempo como dos amigos. Sin darnos cuenta, esa confianza fue construyendo algo que ninguno de los dos podía imaginar.",image:"assets/photos/foto_03.jpg",caption:"Nosotros, antes de saber cuánto iba a crecer esta historia."},
+    {year:"2020",kicker:"CAPÍTULO 2 · CUANDO EL MUNDO SE DETUVO",title:"Nos refugiamos juntos.",text:"Llegó la pandemia y el mundo se volvió incertidumbre. Nosotros hicimos algo distinto: atravesarla juntos. Entre encierro, días raros y momentos que jamás olvidaremos, empezamos a sentir que ya no éramos simplemente dos personas acompañándose.",image:"assets/photos/foto_06.jpg",caption:"Una época extraña afuera; nuestro propio mundo adentro."},
+    {year:"2020",kicker:"CAPÍTULO 3 · NUESTRO PRIMER HIJO",title:"Y llegó George. 🐾",text:"Pequeñito, barbudo, juguetón y con una personalidad enorme. George fue nuestro primer hijo perruno y también una de las primeras cosas que nos hicieron sentir verdaderamente como una familia.",image:"assets/photos/foto_01.jpg",caption:"George: el pequeño que hizo enorme nuestra familia."},
+    {year:"2021",kicker:"CAPÍTULO 4 · UNA NUEVA CIUDAD",title:"De Trujillo a Lima.",text:"Hasta 2021 nuestra historia tuvo sabor a Trujillo. Ese mismo año nos vinimos a Lima para seguir avanzando juntos. Cambió la ciudad, cambiaron muchas cosas, pero seguimos caminando en la misma dirección.",image:"assets/photos/foto_04.jpg",caption:"Caminar juntos también fue aprender a empezar de nuevo."},
+    {year:"Después",kicker:"CAPÍTULO 5 · LA MANADA CRECIÓ",title:"Mía nos encontró en el Callao. 🐾",text:"Y de pronto ya no éramos tres. Llegó Mía y nuestra familia quedó completa: Annys de Venezuela, Diego de Trujillo, George nuestro schnauzer trujillano y Mía, nuestra chalaca adoptiva. Una mezcla que solo podía terminar siendo nuestra.",image:"assets/photos/foto_09.jpg",caption:"George + Mía. Dos corazones de cuatro patas."},
+    {year:"Siempre",kicker:"CAPÍTULO 6 · NUESTRA VIDA NORMAL",title:"Lo extraordinario vive en lo cotidiano.",text:"Salir a comer, entrenar juntos, pasear a los perritos, imaginar que un día patinaremos sin terminar en emergencia 😂, reírnos por cualquier tontería y verte preparar tu arepa… incluso cuando se vuelve a quemar. Esas cosas pequeñas son de mis favoritas porque tienen algo tuyo.",image:"assets/photos/foto_05.jpg",caption:"Tú y ese amor tan tuyo por cada animal."},
+    {year:"6 años",kicker:"CAPÍTULO 7 · LO REAL",title:"También tuvimos días difíciles.",text:"No quiero contar nuestra historia fingiendo que todo fue perfecto. Tuvimos altas, bajas, discusiones, distancias y momentos en los que tomamos caminos separados. Pero también aprendimos, maduramos y descubrimos cuánto habíamos avanzado los dos.",image:"assets/photos/foto_08.jpg",caption:"Porque amar también ha sido aprender a volver a mirarnos."},
+    {year:"2026",kicker:"CAPÍTULO 8 · VOLVER A ELEGIRNOS",title:"Nos alejamos… y volvimos.",text:"Este año trajo familia, Trujillo, cambios y decisiones difíciles. Nos separamos un tiempo y, poco después, volvimos a encontrarnos. Porque juntos somos dinamita pura y cuando estamos lejos los dos sabemos que algo importante nos falta.",image:"assets/photos/foto_02.jpg",caption:"A veces volver también significa escoger de nuevo lo que amas."}
+  ],
+  album:["assets/photos/foto_03.jpg","assets/photos/foto_08.jpg","assets/photos/foto_06.jpg","assets/photos/foto_01.jpg","assets/photos/foto_02.jpg","assets/photos/foto_04.jpg","assets/photos/foto_05.jpg","assets/photos/foto_09.jpg","assets/photos/foto_07.jpg"]
 };
