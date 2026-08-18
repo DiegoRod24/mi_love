@@ -1,7 +1,29 @@
 const $ = (s) => document.querySelector(s);
 
+// Las fotos del repositorio se guardan como texto base64 para poder desplegarlas
+// de forma segura desde GitHub Pages / Cloudflare sin depender de otro servidor.
+const photoCache = new Map();
+async function setPhoto(img, path) {
+  if (!img || !path) return;
+  try {
+    if (photoCache.has(path)) {
+      img.src = photoCache.get(path);
+      return;
+    }
+    const res = await fetch(path, { cache: "force-cache" });
+    if (!res.ok) throw new Error("No se pudo cargar la foto");
+    const raw = (await res.text()).trim();
+    const src = raw.startsWith("/9j/") ? `data:image/jpeg;base64,${raw}` : path;
+    photoCache.set(path, src);
+    img.src = src;
+  } catch (err) {
+    img.classList.add("photo-error");
+    console.warn("Foto no disponible:", path, err);
+  }
+}
+
 function renderHero() {
-  $("#heroImage").src = HISTORIA.portada.imagen;
+  setPhoto($("#heroImage"), HISTORIA.portada.imagen);
   $("#heroTitle").textContent = HISTORIA.portada.titulo;
   $("#heroSubtitle").textContent = HISTORIA.portada.subtitulo;
   $("#heroText").textContent = HISTORIA.portada.texto;
@@ -40,10 +62,11 @@ function renderChapters() {
           <button class="primary" data-next>Seguir recordando <span>→</span></button>
         </div>
         <div class="chapter-photo ${i % 2 ? 'polaroid' : ''}">
-          <img src="${c.image}" alt="${c.alt || 'Recuerdo de nuestra historia'}">
+          <img alt="${c.alt || 'Recuerdo de nuestra historia'}">
         </div>
       </div>`;
     wrap.appendChild(section);
+    setPhoto(section.querySelector(".chapter-photo img"), c.image);
   });
 }
 
@@ -51,10 +74,10 @@ function renderGallery() {
   const gallery = document.getElementById("gallery");
   HISTORIA.galeria.forEach((src, i) => {
     const img = document.createElement("img");
-    img.src = src;
     img.alt = `Recuerdo ${i + 1} de Annys y Diego`;
     img.loading = "lazy";
     gallery.appendChild(img);
+    setPhoto(img, src);
   });
 }
 
@@ -87,11 +110,16 @@ document.addEventListener("keydown", e => {
 });
 
 let touchStartX = 0;
-document.addEventListener("touchstart", e => { touchStartX = e.changedTouches[0].clientX; }, { passive:true });
+let touchStartY = 0;
+document.addEventListener("touchstart", e => {
+  touchStartX = e.changedTouches[0].clientX;
+  touchStartY = e.changedTouches[0].clientY;
+}, { passive:true });
 document.addEventListener("touchend", e => {
-  const diff = e.changedTouches[0].clientX - touchStartX;
-  if (Math.abs(diff) < 45) return;
-  diff < 0 ? show(current + 1) : show(current - 1);
+  const diffX = e.changedTouches[0].clientX - touchStartX;
+  const diffY = e.changedTouches[0].clientY - touchStartY;
+  if (Math.abs(diffX) < 55 || Math.abs(diffX) < Math.abs(diffY) * 1.25) return;
+  diffX < 0 ? show(current + 1) : show(current - 1);
 }, { passive:true });
 
 const music = document.getElementById("music");
@@ -100,7 +128,10 @@ soundBtn.addEventListener("click", async () => {
   try {
     if (music.paused) { await music.play(); soundBtn.classList.add("on"); }
     else { music.pause(); soundBtn.classList.remove("on"); }
-  } catch { alert("Todavía falta agregar nuestra canción en assets/nuestra-cancion.mp3 ❤️"); }
+  } catch {
+    soundBtn.textContent = "♡";
+    setTimeout(() => soundBtn.textContent = "♫", 1200);
+  }
 });
 
 document.getElementById("emotionBtn").addEventListener("click", () => {
