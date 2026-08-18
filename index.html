@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#120d19" />
+  <meta name="description" content="Una historia de amor en capítulos." />
+  <title>Nuestra historia ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="grain"></div>
+  <div id="hearts" aria-hidden="true"></div>
+  <main>
+    <section class="screen hero active" id="inicio">
+      <div class="hero-photo"><img src="assets/photos/foto_03.jpg" alt="Un recuerdo de nuestra historia"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <span class="eyebrow">PARA TI ❤️</span>
+        <h1>Hay historias que empiezan con una fecha.<br><em>La nuestra empezó sin avisar.</em></h1>
+        <p>Preparé algo para recordar cómo llegamos hasta aquí. No hagas scroll: solo ve tocando y acompáñame.</p>
+        <button class="primary" data-next>Empezar nuestra historia <span>→</span></button>
+        <small>Consejo: ábrelo con sonido si luego agregamos nuestra canción 🎵</small>
+      </div>
+    </section>
+
+    <section class="screen chapter family-map">
+      <div class="chapter-inner centered">
+        <span class="eyebrow">UNA FAMILIA IMPROBABLE</span>
+        <h2>Venezuela + Trujillo + Callao</h2>
+        <div class="constellation">
+          <div class="person-card"><span>🇻🇪</span><b>Ella</b><small>Venezuela</small></div><div class="plus">+</div>
+          <div class="person-card"><span>🌊</span><b>Diego</b><small>Trujillo</small></div><div class="plus">+</div>
+          <div class="person-card"><span>🐾</span><b>George</b><small>Schnauzer trujillano</small></div><div class="plus">+</div>
+          <div class="person-card"><span>🐾</span><b>Mía</b><small>Corazón chalaco</small></div>
+        </div>
+        <p class="lead">Cuatro historias de lugares distintos que terminaron llamándose <strong>familia</strong>.</p>
+        <button class="primary" data-next>Y así comenzó todo <span>→</span></button>
+      </div>
+    </section>
+
+    <div id="chapters"></div>
+
+    <section class="screen gallery-screen">
+      <div class="gallery-copy">
+        <span class="eyebrow">NUESTRO ÁLBUM</span>
+        <h2>Si estas fotos hablaran…</h2>
+        <p>dirían que vivimos mucho, nos reímos mucho, nos equivocamos, volvimos a empezar y aprendimos a ser familia.</p>
+      </div>
+      <div class="photo-wall" id="gallery"></div>
+      <button class="primary floating-next" data-next>Hay algo que todavía no te dije <span>→</span></button>
+    </section>
+
+    <section class="screen letter-screen">
+      <div class="letter">
+        <span class="eyebrow">DESPUÉS DE TODO ESTE TIEMPO</span>
+        <h2>Te volvería a escoger.</h2>
+        <p>No porque nuestra historia haya sido perfecta, sino porque es nuestra. Porque conozco tus luces, tus días difíciles, tu manera tan hermosa de amar a los animales, tus ocurrencias, tu carácter, tus sueños… y aun así —o quizás por todo eso— sigo queriendo descubrir la vida contigo.</p>
+        <p>Quiero más cenas, más paseos, más entrenamientos, más viajes, más mascotas que seguramente vas a querer rescatar 😂, más arepas chamuscadas, más domingos flojos, más planes locos y más versiones de nosotros que todavía no conocemos.</p>
+        <p>Ya pasaron seis años entre aventuras, cambios, distancias, reencuentros y muchísimo aprendizaje. Y aunque parezca raro preguntarlo a estas alturas, para mí tiene sentido hacerlo así: <strong>quiero volver a elegirte conscientemente.</strong></p>
+        <button class="primary" data-next>Ahora sí… <span>❤️</span></button>
+      </div>
+    </section>
+
+    <section class="screen proposal-screen" id="final">
+      <div class="proposal-card">
+        <span class="tiny-heart">♥</span><span class="eyebrow">MI PREGUNTA PARA TI</span>
+        <h2>Después de 6 años,<br><em>¿quieres ser mi enamorada?</em></h2>
+        <p>Quiero seguir siendo tu compañero, tu cómplice y parte de esta familia que construimos.</p>
+        <div class="proposal-actions" id="proposalActions">
+          <button class="yes" id="yesBtn">Sí, quiero ❤️</button>
+          <button class="soft" id="emotionBtn">Espera, estoy llorando 🥹</button>
+        </div>
+        <div class="answer hidden" id="answer">
+          <div class="big-heart">❤️</div><h3>Entonces seguimos escribiendo.</h3>
+          <p>Te amo. Y esta vez la siguiente aventura empieza con un “sí”.</p><p class="signature">— Diego</p>
+        </div>
+      </div>
+    </section>
+  </main>
+  <div class="progress"><span id="progressBar"></span></div><div class="step-count" id="stepCount"></div>
+  <button class="sound" id="soundBtn" aria-label="Activar o desactivar música" title="Música">♫</button>
+  <audio id="music" loop preload="none"><source src="assets/nuestra-cancion.mp3" type="audio/mpeg"></audio>
+  <script src="historia.js"></script><script src="app.js"></script>
+</body>
+</html>
