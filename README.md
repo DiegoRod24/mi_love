@@ -1,17 +1,17 @@
 # mi_love ❤️
 
-Historia interactiva creada para **Annys & Diego**.
+Historia interactiva de **Annys & Diego**, optimizada para tablet y móvil.
 
-- Responsive para tablet y móvil
+- Historia por capítulos 2019 → 2026
+- Banderas de Venezuela y Perú
+- George y Mía como parte de la familia
+- Collage con 47 recuerdos
+- Música desde `assets/nuestra-cancion.mp3`
 - Navegación por botones, teclado y gestos táctiles
-- Historia por capítulos
-- Familia: Annys, Diego, George y Mía
 - Carta final y propuesta interactiva
 
 ## Cloudflare Pages
-- Framework preset: `None`
+- Framework: `None`
 - Build command: vacío
-- Build output directory: `/`
+- Output directory: `/`
 - Branch: `main`
-
-Si luego agregamos música, colocar `assets/nuestra-cancion.mp3`.

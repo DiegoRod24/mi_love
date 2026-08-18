@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-  <meta name="theme-color" content="#120d19" />
-  <meta name="description" content="Una historia de amor entre Diego y Annys." />
+  <meta name="theme-color" content="#120c18" />
+  <meta name="description" content="Nuestra historia: Annys & Diego ❤️" />
   <title>Annys & Diego ❤️</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,81 +12,15 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <div class="grain"></div>
-  <main>
-    <section class="screen hero active" id="inicio">
-      <div class="hero-photo"><img id="heroImage" src="" alt="Recuerdo de Annys y Diego"></div>
-      <div class="hero-overlay"></div>
-      <div class="hero-content">
-        <span class="eyebrow">PARA ANNYS ❤️</span>
-        <h1 id="heroTitle"></h1>
-        <p class="hero-subtitle" id="heroSubtitle"></p>
-        <p id="heroText"></p>
-        <div class="cta-stack">
-          <button class="primary" data-next>Empezar nuestra historia <span>→</span></button>
-          <small>Toca los botones o desliza hacia los lados desde tu tablet ✨</small>
-        </div>
-      </div>
-    </section>
-
-    <section class="screen chapter family-map">
-      <div class="chapter-inner centered">
-        <span class="eyebrow">UNA FAMILIA IMPROBABLE Y PERFECTA</span>
-        <h2 id="familyTitle"></h2>
-        <div class="constellation" id="familyGrid"></div>
-        <p class="lead" id="familyText"></p>
-        <button class="primary" data-next>Y así comenzó todo <span>→</span></button>
-      </div>
-    </section>
-
-    <div id="chapters"></div>
-
-    <section class="screen gallery-screen">
-      <div class="gallery-copy">
-        <span class="eyebrow">NUESTRO ÁLBUM</span>
-        <h2>Si estas fotos hablaran…</h2>
-        <p>dirían que nos reímos, crecimos, fallamos, volvimos, nos abrazamos y aprendimos a ser familia.</p>
-      </div>
-      <div class="photo-wall" id="gallery"></div>
-      <button class="primary floating-next" data-next>Hay algo que todavía no te dije <span>→</span></button>
-    </section>
-
-    <section class="screen letter-screen">
-      <div class="letter">
-        <span class="eyebrow">DESPUÉS DE TODO ESTE TIEMPO</span>
-        <h2>Annys, te volvería a escoger.</h2>
-        <p>No porque nuestra historia haya sido perfecta, sino porque es nuestra. Porque conozco tu forma tan especial de amar, tu corazón petlover, tu dulzura, tu carácter, tus ocurrencias y esa capacidad tuya de hacer hogar incluso en los días difíciles.</p>
-        <p>Quiero más salidas contigo, más caminatas con George y Mía, más entrenamientos juntos, más arepas chamuscadas jajaja, más cenas, más planes locos, más viajes y más vida contigo en cada faceta posible.</p>
-        <p>Ya pasaron seis años entre aventuras, cambios, distancias, reencuentros y muchísimo aprendizaje. Y aunque ya hemos compartido tanto, hoy quiero preguntártelo de una manera bonita, consciente y desde el fondo de mi corazón: <strong>quiero volver a elegirte oficialmente.</strong></p>
-        <button class="primary" data-next>Ahora sí… <span>❤️</span></button>
-      </div>
-    </section>
-
-    <section class="screen proposal-screen" id="final">
-      <div class="proposal-card">
-        <span class="tiny-heart">♥</span>
-        <span class="eyebrow">MI PREGUNTA PARA TI</span>
-        <h2>Annys,<br><em>¿quieres ser mi enamorada?</em></h2>
-        <p>Quiero seguir siendo tu compañero, tu cómplice y una parte feliz de la familia que construimos juntos.</p>
-        <div class="proposal-actions" id="proposalActions">
-          <button class="yes" id="yesBtn">Sí, quiero ❤️</button>
-          <button class="soft" id="emotionBtn">Espera, estoy llorando 🥹</button>
-        </div>
-        <div class="answer hidden" id="answer">
-          <div class="big-heart">❤️</div>
-          <h3>Entonces seguimos escribiendo esta historia.</h3>
-          <p>Te amo demasiado, Annys. Y esta vez la siguiente aventura empieza con un “sí”.</p>
-          <p class="signature">— Diego</p>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <div class="progress"><span id="progressBar"></span></div>
+  <div class="grain" aria-hidden="true"></div>
+  <main id="app"></main>
+  <div class="progress" aria-hidden="true"><span id="progressBar"></span></div>
   <div class="step-count" id="stepCount"></div>
-  <div class="nav-hint">Desliza o toca los botones</div>
-  <button class="sound" id="soundBtn" aria-label="Activar o desactivar música" title="Música">♫</button>
-  <audio id="music" loop preload="none"><source src="assets/nuestra-cancion.mp3" type="audio/mpeg"></audio>
+  <div class="nav-hint">Desliza ↔ o toca el botón</div>
+  <button class="sound" id="soundBtn" aria-label="Activar o pausar música" title="Música">♫</button>
+  <audio id="music" loop preload="auto">
+    <source src="assets/nuestra-cancion.mp3" type="audio/mpeg">
+  </audio>
   <script src="historia.js"></script>
   <script src="app.js"></script>
 </body>
