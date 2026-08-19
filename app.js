@@ -276,7 +276,7 @@ function updateUI() {
 
   if (progress) progress.style.width = `${(current / (screens.length - 1)) * 100}%`;
   if (counter) counter.textContent = `${String(current + 1).padStart(2, '0')} / ${String(screens.length).padStart(2, '0')}`;
-  if (hint) hint.classList.toggle('hidden-ui', current === 0 || type === 'proposal');
+  if (hint) hint.classList.toggle('hidden-ui', current === 0 || type === 'proposal' || current > 3);
   if (dock) dock.classList.toggle('hidden-ui', current === 0 || type === 'proposal');
   if (prev) prev.disabled = current <= 1;
   if (next) next.disabled = current >= screens.length - 1;
@@ -366,8 +366,8 @@ function acceptConsent(source = 'manual') {
   setTimeout(() => show(1), 800);
 }
 
-async function startVoice() {
-  await unlockMusic({ quiet: true });
+function startVoice() {
+  unlockMusic({ quiet: true });
   if (!supportsVoice) {
     $('#voiceHelp').textContent = 'Tu navegador no soporta reconocimiento de voz. Usa “Continuar ❤️”.';
     return;
