@@ -37,15 +37,14 @@
     safePlay(0.5);
   };
 
-  // La música se desbloquea en el primer gesto real de la experiencia.
-  // Esto cubre tanto el botón de voz como el botón manual y evita bloqueos en tablet/móvil.
+  // Desbloquear audio desde el gesto real de la usuaria, especialmente importante en tablet/móvil.
   document.addEventListener('pointerdown', (event) => {
     const target = event.target.closest('#voiceBtn, #manualBtn, #emergencyContinue, [data-next]');
     if (!target) return;
     unlockFromGesture();
   }, true);
 
-  // Si la usuaria toca el botón de música, respetamos su decisión de pausar/reanudar.
+  // Respetar únicamente una pausa hecha manualmente con el botón de música.
   document.addEventListener('pointerdown', (event) => {
     if (!event.target.closest('#soundBtn')) return;
     userPaused = !music.paused;
@@ -55,7 +54,7 @@
     }
   }, true);
 
-  // Cada avance o retroceso mantiene la misma pista y la misma posición.
+  // Avanzar o retroceder nunca reinicia la pista: conserva currentTime y mantiene reproducción.
   document.addEventListener('touchend', () => {
     if (storyAudioEnabled && !userPaused && music.paused) safePlay(0.5);
   }, { passive: true });
@@ -65,8 +64,13 @@
     if (storyAudioEnabled && !userPaused && music.paused) safePlay(0.5);
   });
 
-  // Algunos navegadores pausan multimedia al cambiar momentáneamente de app/pestaña.
-  // Si Annys vuelve a la historia, reanudamos desde el mismo segundo, nunca desde cero.
+  // Si Android/iPad/Chrome interrumpe el audio accidentalmente, reanudar desde el mismo segundo.
+  music.addEventListener('pause', () => {
+    if (!storyAudioEnabled || userPaused || document.hidden) return;
+    clearTimeout(resumeTimer);
+    resumeTimer = setTimeout(() => safePlay(0.5), 180);
+  });
+
   document.addEventListener('visibilitychange', () => {
     if (document.hidden || !storyAudioEnabled || userPaused) return;
     clearTimeout(resumeTimer);
@@ -77,11 +81,10 @@
     if (storyAudioEnabled && !userPaused) safePlay(0.5);
   });
 
-  // Nunca reiniciar currentTime al cambiar de capítulo.
+  // El elemento ya está en loop; esta salvaguarda evita que quede en silencio si el navegador ignora loop.
   music.addEventListener('ended', () => {
-    if (!music.loop && storyAudioEnabled && !userPaused) {
-      music.currentTime = 0;
-      safePlay(0.5);
-    }
+    if (!storyAudioEnabled || userPaused) return;
+    music.currentTime = 0;
+    safePlay(0.5);
   });
 })();
